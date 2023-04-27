@@ -1,5 +1,7 @@
 package main;
 
+import main.board.Board;
+
 import java.util.Scanner;
 
 public class MainClass {
@@ -23,7 +25,21 @@ public class MainClass {
 				break;
 
 			case 3:
-	
+				System.out.println("1. 게시판 등록");
+				System.out.println("2. 게시판 조회");
+				int boardAct = input.nextInt();
+				switch (boardAct) {
+					case 1:
+						System.out.println("제목을 입력해 주세요.");
+						String title = input.next();
+						System.out.println("내용을 입력해 주세요.");
+						String content = input.next();
+						Board.addBoard(Board.createBoard(title, content));
+						break;
+					case 2:
+						Board.printBoard();
+						break;
+				}
 				break;
 				
 			}
